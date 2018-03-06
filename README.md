@@ -48,3 +48,14 @@ Tools Used:
 * pandas module
 * re module
 * itertools module
+
+# File Descriptions:
+
+* suffixes.txt: contains list of suffixes 
+* prefixes.txt: contains list of prefixes
+* compound_prefixes: contains list of compound prefixes
+* name_parser.py: helps in name parsing like splitting name into 4 parts prefix, first part, last part, suffix and other utility functions
+* similarity_evaluation.py: contains implementation of similarity function
+* main.py: implements the functionality of reading the file and performing deduplication
+* Deduplication Problem - Sample Dataset.csv: input dataset provided by innovaccer. I have added few more entries to test my algorithm
+* Output.csv: contains the output of the algorithm.

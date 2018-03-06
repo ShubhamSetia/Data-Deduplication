@@ -8,37 +8,15 @@ Created on Mon Mar  5 08:15:16 2018
 
 import re
 
-# List of suffixes and prefixes used to match pattern 
-_suffixes = ['Jr', 'Sr', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII',
-            'PhD', 'MD', 'DD', 'JD', 'PharmD', 'PsyD', 'RN', 'EngD',
-            'DPhil', 'MA', 'MF', 'MBA', 'MSc', 'MEd', 'EdD', 'DMin',
-            'AB', 'BA', 'BFA', 'BSc', 'Esq', 'Esquire', 'MP', "MS",
-            'USA', 'USAF', 'USMC', 'USCG', 'USN', 'Ret', r'\(Ret\)',
-            'CPA', 'Junior', 'Senior']
+# List of suffixes, prefixes and compound prefixes used to match pattern 
+with open("prefixes.txt", 'r') as f:
+    _prefixes = [line.rstrip('\n') for line in f]
 
-_prefixes = ['Mr', 'Mister', 'Mrs', 'Ms', 'Miss', 'Dr', 'Doctora?',
-             'Professor', 'The', 'Honou?rable', 'Chief', 'Justice',
-             'His', 'Her', 'Honou?r', 'Mayor', 'Associate', 'Majesty',
-             'Judge', 'Master', 'Sen', 'Senator', 'Rep', 'Deputy',
-             'Representative', 'Congress(wo)?man', 'Sir', 'Dame',
-             'Speaker', r'(Majority|Minority)\W+Leader',
-             'Presidente?', 'Chair(wo)?man', 'Pres', 'Governor',
-             'Gov', 'Assembly\W+Member', 'Highness', 'Hon',
-             'Prime\W+Minister', r'P\.?M', 'Admiral', 'Adm',
-             'Colonel', 'Col', 'General', 'Gen', 'Captain',
-             'Capt', 'Corporal', 'CPL', 'PFC', 'Private',
-             r'First\W+Class', 'Sergeant', 'Sgt', 'Commissioner',
-             'Lieutenant', 'Lt', 'Lieut', 'Brigadier',
-             'Major', 'Maj', 'Officer', 'Pilot',
-             'Warrant', 'Officer', 'Cadet', 'Reverand',
-             'Minister', 'Venerable', 'Father', 'Mother', 'Brother',
-             'Sister', 'Rabbi', 'Fleet', 'Sr', 'Sra', 'Srta', 'Alcalde(sa)?',
-             'Senadora?', 'Representante', 'Legisladora?', 'Gobernadora?',
-             'Comisionado','Residente']
+with open("suffixes.txt", 'r') as f:
+    _suffixes = [line.rstrip('\n') for line in f]
 
-_compound_prefixes = ['vere', 'von', 'van', 'de', 'del', 'della', 'di', 'da',
-                      'pietro', 'vanden', 'du', r'st\.', 'st', 'la', 'ter',
-                      'bin']
+with open("compound_prefixes.txt", 'r') as f:
+  _compound_prefixes = [line.rstrip('\n') for line in f]
 
 _suffix_pattern = [r"\.?".join(suffix) for suffix in _suffixes]
 _suffix_pattern = r'\W*,?(\W+(%s)\.?,?)+\W*$' % r"|".join(_suffix_pattern)

@@ -31,9 +31,9 @@ Output: similarity score between 2 names<br/>
 * If two strings are exactly same then we return 1.0
 * Else If either of the string is empty we return 0.0
 * Else we initialize max (max similarity score) to 0.0 and compute similarity score.
-* I have defined 9 different functions to transform each name with a penalty score based on their importance. 
-* These functions are applied on both the names in combination and penalty score is stored.
-* By applying in combinations means that in first iteration each will be applied individually, in second iteration two taken together, in third iterations three taken togther and so on. In final iteration all 9 are applied together.
+* I have defined 10 different functions to transform each name with a penalty score based on their importance. 
+* These functions are applied on both the names in combination and penalty score and resultant name are stored.
+* By applying in combinations means that in first iteration each will be applied individually, in second iteration two taken together, in third iterations three taken togther and so on. In final iteration all 10 are applied together.
 * After end of each iteration I am storing the resultant string and the total penalty score in a set for each name.
 * Then i run two for loop to iterate over the two set if they have same string then i compute score as 1 - penalty1 - penalty2. 
 * If score > max then max = score

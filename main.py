@@ -25,6 +25,7 @@ for index,row in data.iterrows():
     
 length = len(fullName)
 i = 0
+temp = []
 while i<length :
     j= i+1
     while j <length:
@@ -32,18 +33,21 @@ while i<length :
             score = similarity_evalutation.similarity(fullName[i],fullName[j])
             print(fullName[i],fullName[j],"has score: ",score)
             if score>0.2:
-                print("Poped",fullName[j])
-                fullName.pop(j)
-                fName.pop(j)
-                lName.pop(j)
-                dob.pop(j)
-                gender.pop(j)
-                length-=1
-                
+                temp.append(j)
         j+=1
     i+=1
             
                 
-
-output = pd.DataFrame({'ln':lName,'dob':dob,'gn':gender,'fn':fName})
+fName_ = []
+lName_ = []
+dob_ = []
+gender_ = []
+for i in range(len(fName)):
+    if i not in temp:
+        fName_.append(fName[i])
+        lName_.append(lName[i])
+        dob_.append(dob[i])
+        gender_.append(gender[i])
+        
+output = pd.DataFrame({'ln':lName_,'dob':dob_,'gn':gender_,'fn':fName_})
 output.to_csv("Output.csv")

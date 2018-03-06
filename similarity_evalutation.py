@@ -21,7 +21,16 @@ def initial_initial(name):
     if fp:
         fp = fp[0]
     return " ".join([p for p in [pre, fp, lp, suff] if p])
-
+def last_initial(name):
+    """
+    Input: Name
+    Output: Last Name in Abbrevated form
+    """
+    pre,fp,lp,suff = name_parser.split(name)
+    
+    if lp:
+        lp = lp[0]
+    return " ".join([p for p in [pre, fp, lp, suff] if p])
 
 def middle_initials(name):
     """
@@ -66,6 +75,7 @@ _funcs = {(lambda s: s.lower()): 0.01,
           (lambda s: s.replace('.', '')): 0.02,
           (lambda s: s.replace(',', '')): 0.02,
           initial_initial: 0.10,
+          last_initial: 0.10,
           middle_initials: 0.10,
           name_parser.drop_prefix: 0.05,
           name_parser.drop_suffix: 0.05,

@@ -12,6 +12,10 @@ from itertools import combinations
 import name_parser
 
 def initial_initial(name):
+    """
+    Input: Name
+    Output: First Name in Abbrevated form
+    """
     pre,fp,lp,suff = name_parser.split(name)
     
     if fp:
@@ -20,6 +24,10 @@ def initial_initial(name):
 
 
 def middle_initials(name):
+    """
+    Input: Name
+    Output: Middle Name in Abbrevated form
+    """
     parts = name.split(' ')
     name = parts[0]
     
@@ -30,13 +38,25 @@ def middle_initials(name):
     return name
 
 def last_only(name):
+    """
+    Input: Name
+    Output: Last Name
+    """
     return name_parser.split(name)[2]
 
 def first_first(name):
+    """
+    Input: Name
+    Output: First name appears first and last name appears last
+    """
     parts = name_parser.split(name)
     return " ".join([p for p in parts if p])
 
 def last_first(name):
+    """
+    Input: Name
+    Output: Last name appears first and first name appears last
+    """
     pre, fp, lp, suf = name_parser.split(name)
     if lp:
         lp += ", "
@@ -59,12 +79,20 @@ for n in range(0, len(_funcs)):
     
 
 def similarity(name1,name2):
+    """
+    Input: two strings name1 and name2
+    Output: a floating point number between 0.0 and 1.0 which is the similarity score
+    """
     
+    # If name are same return 1
     if name1==name2:
         return 1.0
+
+    # If either of name is empty string
     if not name1.strip() or not name2.strip():
         return 0.0
     
+    # Remove multiple spaces i.e reduces spaces to 1 example: "abc  def" => "abc def"
     name1 = re.sub('  +', ' ', name1)
     name1 = re.sub('  +', ' ', name1)
 
@@ -92,4 +120,3 @@ def similarity(name1,name2):
     
     return max
 
-similarity("HARRIET FUNARO JONES", "HARRIET FUNARO J")

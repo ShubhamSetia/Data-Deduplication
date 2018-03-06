@@ -4,12 +4,12 @@
 Variation in names leads to difficulty in identifying a unique person and hence deduplication
 of records is an unsolved challenge. The problem becomes more complicated in cases where
 data is coming from multiple sources. Following variations are same as Vladimir Frometa:
-Vladimir Antonio Frometa Garo
-Vladimir A Frometa Garo
-Vladimir Frometa
-Vladimir Frometa G
-Vladimir A Frometa
-Vladimir A Frometa G
+* Vladimir Antonio Frometa Garo
+* Vladimir A Frometa Garo
+* Vladimir Frometa
+* Vladimir Frometa G
+* Vladimir A Frometa
+* Vladimir A Frometa G
 
 Train a model to identify unique patients in the dataset
 
@@ -26,11 +26,11 @@ Dataset contains following fields:
 * We fix a threshold value between 0.0 and 1.0. If score is less then that threshold then they refer to different person else they refer to same patient and we remove the duplicate entry.
 
 # Similarity Calculation Algorithm 
-Input: two strings name1, name2
-output: similarity score between 2 names
+Input: two strings name1, name2 <br/>
+Output: similarity score between 2 names<br/>
 * If two strings are exactly same then we return 1.0
 * Else If either of the string is empty we return 0.0
-* Else we intialize max (max similarity score) to 0.0 and compute similarity score.
+* Else we initialize max (max similarity score) to 0.0 and compute similarity score.
 * I have defined 9 different functions to transform each name with a penalty score based on their importance. 
 * These functions are applied on both the names in combination and penalty score is stored.
 * By applying in combinations means that in first iteration each will be applied individually, in second iteration two taken together, in third iterations three taken togther and so on. In final iteration all 9 are applied together.

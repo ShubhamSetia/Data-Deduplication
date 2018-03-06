@@ -40,3 +40,11 @@ Output: similarity score between 2 names<br/>
 * Return max
 
 
+# How to run the program:
+`python main.py` <br/>
+
+Tools Used: 
+* python 3.6
+* pandas module
+* re module
+* itertools module
